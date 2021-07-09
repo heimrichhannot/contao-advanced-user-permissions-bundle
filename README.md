@@ -2,10 +2,10 @@
 
 A bundle to customize the contao backend dashboard.
 
-
 ## Features
-- adds following additional permission:
-   - create, edit and delete news articles for allowed archives
+- adds following additional permissions
+    - Articles: create, edit, and delete articles for allowed articles
+    - News: create, edit and delete news articles for allowed archives
    
 
 ## Usage
@@ -18,6 +18,6 @@ A bundle to customize the contao backend dashboard.
 
 1. Update database
 
-### Update news permissions
+### Update permissions
 
-You'll find the new permissions within user or user group permission settings within the news section.
+Permissions can be found within the user group configurations.

@@ -8,13 +8,16 @@
 
 namespace HeimrichHannot\AdvancedUserPermissionsBundle\DependencyInjection;
 
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class HeimrichHannotAdvancedUserPermissionsExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        // TODO: Implement load() method.
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
+        $loader->load('services.yml');
     }
 }

@@ -42,9 +42,6 @@ class LoadDataContainerListener
             'exclude' => true,
             'inputType' => 'checkbox',
             'options' => ['create', 'edit', 'delete'],
-            'default' => [
-                'create' => true, 'edit' => true, 'delete' => true,
-            ],
             'reference' => &$GLOBALS['TL_LANG']['MSC'],
             'eval' => ['multiple' => true],
             'sql' => 'blob NULL',

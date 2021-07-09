@@ -7,3 +7,4 @@
  */
 
 $GLOBALS['TL_PERMISSIONS'][] = 'huhAdvUsPer_newsArticlep';
+$GLOBALS['TL_PERMISSIONS'][] = 'huhAdvUsPer_articlep';

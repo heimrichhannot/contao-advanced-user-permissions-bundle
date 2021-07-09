@@ -5,3 +5,5 @@
  *
  * @license LGPL-3.0-or-later
  */
+
+$GLOBALS['TL_LANG']['MSC']['edit'] = 'Bearbeiten';

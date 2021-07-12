@@ -1,6 +1,8 @@
 # Contao Advanced User Permissions Bundle
 
-A bundle to customize the contao backend dashboard.
+A bundle to add more additional user permissions to contao.
+
+Sometimes more granular user permissions are needed, then contao already provides out of the box. This bundle adds some additional restrictions to gain more flexibility. 
 
 ## Features
 - adds following additional permissions
@@ -17,6 +19,8 @@ A bundle to customize the contao backend dashboard.
         composer require heimrichhannot/contao-advanced-user-permisssions-bundle
 
 1. Update database
+
+1. Check your existing user groups as the new restrictions may affect them
 
 ### Update permissions
 

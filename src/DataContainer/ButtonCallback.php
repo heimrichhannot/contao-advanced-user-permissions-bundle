@@ -33,7 +33,6 @@ class ButtonCallback
      * @Callback(table="tl_article", target="list.operations.edit.button")
      * @Callback(table="tl_news", target="list.operations.editheader.button")
      * @Callback(table="tl_news", target="list.operations.cut.button")
-     * @Callback(table="tl_news", target="list.operations.toggle.button")
      */
     public function onEditButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
     {
@@ -139,6 +138,20 @@ class ButtonCallback
     public function onCreateDeleteCallback($row, $href, $label, $title, $icon, $attributes): string
     {
         return $this->renderButton($this->security->isGranted('contao_user.huhAdvUsPer_newsArticlep', 'delete'), $row, $href, $label, $title, $icon, $attributes);
+    }
+
+    /**
+     * @Callback(table="tl_news", target="list.operations.toggle.button")
+     */
+    public function onNewsToggleButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
+    {
+        if ($this->security->isGranted('contao_user.huhAdvUsPer_newsArticlep', 'edit')) {
+            $instance = System::importStatic('tl_news');
+
+            return $instance->toggleIcon($row, $href, $label, $title, $icon, $attributes, $table);
+        }
+
+        return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
     }
 
     private function renderButton(bool $allowed, $row, $href, $label, $title, $icon, $attributes): string

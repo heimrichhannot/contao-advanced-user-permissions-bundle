@@ -38,9 +38,9 @@ class ButtonCallback
     {
         if ('tl_article' === $table) {
             if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'edit')) {
-                $tlArticle = System::importStatic('tl_article');
+                $instance = System::importStatic('tl_article');
 
-                return $tlArticle->editArticle($row, $href, $label, $title, $icon, $attributes, $table);
+                return \call_user_func_array([$instance, 'editArticle'], \func_get_args());
             }
             $allowed = false;
         } else {
@@ -56,9 +56,9 @@ class ButtonCallback
     public function onEditHeaderButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
     {
         if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'edit')) {
-            $tlArticle = System::importStatic('tl_article');
+            $instance = System::importStatic('tl_article');
 
-            return $tlArticle->editHeader($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'editHeader'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
@@ -74,9 +74,9 @@ class ButtonCallback
         }
 
         if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'create')) {
-            $tlArticle = System::importStatic('tl_article');
+            $instance = System::importStatic('tl_article');
 
-            return $tlArticle->copyArticle($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'copyArticle'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
@@ -88,9 +88,9 @@ class ButtonCallback
     public function onCutButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
     {
         if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'edit')) {
-            $tlArticle = System::importStatic('tl_article');
+            $instance = System::importStatic('tl_article');
 
-            return $tlArticle->cutArticle($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'cutArticle'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
@@ -102,9 +102,9 @@ class ButtonCallback
     public function onDeleteButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
     {
         if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'delete')) {
-            $tlArticle = System::importStatic('tl_article');
+            $instance = System::importStatic('tl_article');
 
-            return $tlArticle->deleteArticle($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'deleteArticle'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
@@ -116,9 +116,9 @@ class ButtonCallback
     public function onToggleButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
     {
         if ($this->security->isGranted('contao_user.huhAdvUsPer_articlep', 'edit')) {
-            $tlArticle = System::importStatic('tl_article');
+            $instance = System::importStatic('tl_article');
 
-            return $tlArticle->toggleIcon($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'toggleIcon'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
@@ -148,7 +148,7 @@ class ButtonCallback
         if ($this->security->isGranted('contao_user.huhAdvUsPer_newsArticlep', 'edit')) {
             $instance = System::importStatic('tl_news');
 
-            return $instance->toggleIcon($row, $href, $label, $title, $icon, $attributes, $table);
+            return \call_user_func_array([$instance, 'toggleIcon'], \func_get_args());
         }
 
         return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);

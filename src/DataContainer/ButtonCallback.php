@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2021 Heimrich & Hannot GmbH
+ * Copyright (c) 2023 Heimrich & Hannot GmbH
  *
  * @license LGPL-3.0-or-later
  */
@@ -17,12 +17,8 @@ use Symfony\Component\Security\Core\Security;
 
 class ButtonCallback
 {
-    /** @var Security */
-    private $security;
+    private Security $security;
 
-    /**
-     * NewsContainer constructor.
-     */
     public function __construct(Security $security)
     {
         $this->security = $security;
@@ -138,20 +134,6 @@ class ButtonCallback
     public function onCreateDeleteCallback($row, $href, $label, $title, $icon, $attributes): string
     {
         return $this->renderButton($this->security->isGranted('contao_user.huhAdvUsPer_newsArticlep', 'delete'), $row, $href, $label, $title, $icon, $attributes);
-    }
-
-    /**
-     * @Callback(table="tl_news", target="list.operations.toggle.button")
-     */
-    public function onNewsToggleButtonCallback($row, $href, $label, $title, $icon, $attributes, string $table): string
-    {
-        if ($this->security->isGranted('contao_user.huhAdvUsPer_newsArticlep', 'edit')) {
-            $instance = System::importStatic('tl_news');
-
-            return \call_user_func_array([$instance, 'toggleIcon'], \func_get_args());
-        }
-
-        return $this->renderButton(false, $row, $href, $label, $title, $icon, $attributes);
     }
 
     private function renderButton(bool $allowed, $row, $href, $label, $title, $icon, $attributes): string

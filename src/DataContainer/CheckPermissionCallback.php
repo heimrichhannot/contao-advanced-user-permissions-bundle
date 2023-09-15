@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2021 Heimrich & Hannot GmbH
+ * Copyright (c) 2023 Heimrich & Hannot GmbH
  *
  * @license LGPL-3.0-or-later
  */
@@ -16,12 +16,8 @@ use Symfony\Component\Security\Core\Security;
 
 class CheckPermissionCallback
 {
-    /** @var Security */
-    private $security;
+    private Security $security;
 
-    /**
-     * NewsContainer constructor.
-     */
     public function __construct(Security $security)
     {
         $this->security = $security;

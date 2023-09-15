@@ -16,7 +16,7 @@ Sometimes more granular user permissions are needed, then contao already provide
 
 1. Install with composer or contao manager
 
-        composer require heimrichhannot/contao-advanced-user-permisssions-bundle
+        composer require heimrichhannot/contao-advanced-user-permissions-bundle
 
 1. Update database
 
